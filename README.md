@@ -52,6 +52,83 @@ edtech-nl2sql/
 ├── README.md
 └── .gitignore
 ```
+---
+## **Running Locally**
+
+### **Create Virtual Environment**
+```
+python -m venv venv
+source venv/bin/activate
+```
+
+### **Install Dependencies**
+```
+pip install -r requirements.txt
+```
+
+### **Run the Server**
+```
+uvicorn app.main:app --reload
+```
+
+Open:
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+## **Running Tests**
+Unit tests cover:
+- API endpoints
+- SQL validator logic
+Run tests using:
+```
+pytest
+```
+
+---
+## **Docker**
+### **Build Image**
+```
+docker build -t edtech-nl2sql .
+```
+
+### **Run Container**
+```
+docker run -p 8000:8000 --env-file .env edtech-nl2sql
+```
+
+---
+
+### **Generating a Google Gemini API Key**
+
+  
+
+Follow these steps:
+
+1. Go to: https://aistudio.google.com/
+2. Sign in with your Google account.
+3. Click **“Get API Key”** (top right).
+4. Click **Create API Key**.
+5. Copy the generated key.
+
+---
+
+### **Setting Up the API Key**
+
+  
+
+Create a .env file in the project root:
+
+```
+GEMINI_API_KEY=your_api_key_here
+```
+
+
+  
+
+The application loads the API key automatically using python-dotenv.
+
 
 ---
 ## Database Schema
@@ -108,38 +185,6 @@ for model in client.models.list():
     print(model.name)
 ```
 Refer to Google AI documentation for updated model names.
-
----
-
-### **Generating a Google Gemini API Key**
-
-  
-
-Follow these steps:
-
-1. Go to: https://aistudio.google.com/
-2. Sign in with your Google account.
-3. Click **“Get API Key”** (top right).
-4. Click **Create API Key**.
-5. Copy the generated key.
-
----
-
-### **Setting Up the API Key**
-
-  
-
-Create a .env file in the project root:
-
-```
-GEMINI_API_KEY=your_api_key_here
-```
-
-Make sure .env is NOT pushed to GitHub.
-
-  
-
-The application loads the API key automatically using python-dotenv.
 
 ---
 
@@ -208,51 +253,6 @@ Before execution:
 - SQL is validated to ensure it starts with SELECT
 - Blacklisted keywords are rejected
 - Invalid or unsafe queries raise an error
-
----
-## **Running Locally**
-### **Create Virtual Environment**
-```
-python -m venv venv
-source venv/bin/activate
-```
-
-### **Install Dependencies**
-```
-pip install -r requirements.txt
-```
-
-### **Run the Server**
-```
-uvicorn app.main:app --reload
-```
-
-Open:
-```
-http://127.0.0.1:8000/docs
-```
-
----
-## **Running Tests**
-Unit tests cover:
-- API endpoints
-- SQL validator logic
-Run tests using:
-```
-pytest
-```
-
----
-## **Docker**
-### **Build Image**
-```
-docker build -t edtech-nl2sql .
-```
-
-### **Run Container**
-```
-docker run -p 8000:8000 --env-file .env edtech-nl2sql
-```
 
 ---
 ## **Kubernetes**
