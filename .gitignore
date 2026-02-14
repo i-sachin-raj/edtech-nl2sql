@@ -1,0 +1,18 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Database
+edtech.db
+
+# Environment variables
+.env
+
+# Mac files
+.DS_Store
+
+# Pytest cache
+.pytest_cache/
