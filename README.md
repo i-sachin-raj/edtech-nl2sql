@@ -54,6 +54,10 @@ edtech-nl2sql/
 ```
 ---
 ## **Running Locally**
+### **Clone/Download the Repositor**
+```
+git clone https://github.com/i-sachin-raj/edtech-nl2sql
+```
 
 ### **Create Virtual Environment**
 ```
